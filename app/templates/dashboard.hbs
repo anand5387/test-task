@@ -1,0 +1,11 @@
+{{search-via-city model=model }}
+{{#if model.name}}
+<h1 class="text-center text-primary">Weather in your current city</h1>
+<h2 class="text-center text-primary">{{model.name}}, {{model.sys.country}}</h2>
+<h3 class="text-center text-primary">{{integer-roundoff model.main.temp}} °C</h3>
+<h4 class="text-center text-primary">{{model.weather.firstObject.main}}</h4>
+{{else}}
+    <h1 class="text-center text-danger">OOPS!!! City not found. Please try again....</h1>
+{{/if}}
+
+{{outlet}}
