@@ -6,6 +6,7 @@ export default Ember.Component.extend({
         city: '',
         country: ''
     },
+    isLoading: false,
     isValid: Ember.computed('query.city', 'query.country', function() {
         return this.get('query.city') != '' || this.get('query.country') != '';
     }),
@@ -25,17 +26,20 @@ export default Ember.Component.extend({
     actions: {
         findWeather() {
             if(this.get('isValid')) {
+                this.set('isLoading', true)
                 try {
+                    let self = this
                     var latestData = this.get('store').queryRecord('weather', {
                         appid: '054e91c49df188834700a4af8c7146a7',
                         q: this.get('queryString'),
                         units: 'metric'
                     });
-    
-                    this.set('model', latestData);
+                    self.set('model', latestData);
+                    self.set('isLoading', false);
                 } catch(e) {
                     console.log(e);
                 }
+                this.set('isLoading', false);
             } else {
                 console.log('Enter City or Country Name');
             }

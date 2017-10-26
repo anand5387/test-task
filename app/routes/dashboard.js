@@ -28,9 +28,12 @@ export default Ember.Route.extend({
     },
 
     actions: {
+        loading() {
+            return true; // allows the loading template to be shown
+        },
         error(error) {
           if (error) {
-            return this.transitionTo('error');
+            return this.transitionTo('error'); // Tranition to error page
           }
         }
       }

@@ -1,4 +1,7 @@
 {{yield}}
+{{#if isLoading}}
+    Loading...
+{{else}}
 <div class="container text-center">
     <form class="form-inline">
         <div class="form-group">
@@ -17,3 +20,4 @@
         </p>
     {{/unless}}
 </div>
+{{/if}}
