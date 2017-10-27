@@ -27,32 +27,31 @@ test('visiting dashboard', function(assert) {
     assert.equal(find('h2').length, 1, 'H2 - City Name available');
     assert.equal(find('h3').length, 1, 'H3 - Temperature available');
     assert.equal(find('h4').length, 1, 'H4 - Weather type available');
-
-    fillIn('#cityQuery', 'Chennai');
-    fillIn('#countryQuery', 'India');
-    click('.form-inline button');
-
-    andThen(function () {
-      assert.equal(find('h2').text().trim(), 'Chennai, IN', '​And I see the updated weather for Chennai');
-    });
-
-    fillIn('#cityQuery', 'New York');
-    fillIn('#countryQuery', 'US');
-    click('.form-inline button');
-
-    andThen(function () {
-      assert.equal(find('h2').text().trim(), 'New York, US', '​And I see the updated weather for New York');
-    });
-
-    fillIn('#cityQuery', 'zzzzzzz');
-    fillIn('#countryQuery', 'zzzzzz');
-    andThen(function () {
-      click('.form-inline button');   
-    });
-
-    andThen(function () {
-      assert.equal(find('h1.text-danger').length, 1, '​And I see the error message for invalid city');
-    });
-
   });
+
+  fillIn('#cityQuery', 'Chennai');
+  fillIn('#countryQuery', 'India');
+  click('.form-inline button');
+
+  andThen(function () {
+    assert.equal(find('h2').text().trim(), 'Chennai, IN', '​And I see the updated weather for Chennai');
+  });
+
+  fillIn('#cityQuery', 'New York');
+  fillIn('#countryQuery', 'US');
+  click('.form-inline button');
+
+  andThen(function () {
+    assert.equal(find('h2').text().trim(), 'New York, US', '​And I see the updated weather for New York');
+  });
+
+  fillIn('#cityQuery', 'zzzzzzz');
+  fillIn('#countryQuery', 'zzzzzz');
+  click('.form-inline button');   
+
+  andThen(function () {
+    assert.equal(find('h1.text-danger').length, 1, '​And I see the error message for invalid city');
+  });
+
+  
 });

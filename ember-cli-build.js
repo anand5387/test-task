@@ -3,6 +3,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    babel: {
+      includePolyfill: true
+    },
     'ember-bootstrap': {
       'bootstrapVersion': 3,
       'importBootstrapFont': false,

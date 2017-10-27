@@ -1,7 +1,4 @@
 {{yield}}
-{{#if isLoading}}
-    Loading...
-{{else}}
 <div class="container text-center">
     <form class="form-inline">
         <div class="form-group">
@@ -17,9 +14,8 @@
     {{#unless isInitial}}
         {{#unless isValid}}
             <p class="text-danger" > 
-                Please enter atleast City or Country name!!!
+                Please atleast enter City or Country name!!!
             </p>
         {{/unless}}
     {{/unless}}
 </div>
-{{/if}}

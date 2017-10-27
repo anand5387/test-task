@@ -7,7 +7,6 @@ export default Ember.Component.extend({
         country: ''
     },
     isInitial: true,
-    isLoading: false,
     queryObserver: Ember.observer('query.city', 'query.country', function() {
         this.set('isInitial', false);
     }),
@@ -29,23 +28,16 @@ export default Ember.Component.extend({
     }),
     actions: {
         findWeather() {
-            if(this.get('isValid')) {
-                this.set('isLoading', true)
-                try {
-                    let self = this
-                    var latestData = this.get('store').queryRecord('weather', {
-                        appid: '054e91c49df188834700a4af8c7146a7',
-                        q: this.get('queryString'),
-                        units: 'metric'
-                    });
-                    self.set('model', latestData);
-                    self.set('isLoading', false);
-                } catch(e) {
-                    Ember.Logger.log(e);
-                }
-                this.set('isLoading', false);
-            } else {
-                Ember.Logger.log('Enter City or Country Name');
+            try {
+                let latestData = this.get('store').queryRecord('weather', {
+                    appid: '054e91c49df188834700a4af8c7146a7',
+                    q: this.get('queryString'),
+                    units: 'metric'
+                });
+                this.set('model', latestData);
+            } catch(e) {
+                Ember.Logger.log(e);
+                this.set('model', null);
             }
         }
     }
