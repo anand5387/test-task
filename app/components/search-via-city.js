@@ -6,7 +6,11 @@ export default Ember.Component.extend({
         city: '',
         country: ''
     },
+    isInitial: true,
     isLoading: false,
+    queryObserver: Ember.observer('query.city', 'query.country', function() {
+        this.set('isInitial', false);
+    }),
     isValid: Ember.computed('query.city', 'query.country', function() {
         return this.get('query.city') != '' || this.get('query.country') != '';
     }),

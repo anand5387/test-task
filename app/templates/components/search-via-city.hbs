@@ -12,12 +12,14 @@
             <label for="countryQuery">Country</label>
             {{input type="text" class="form-control" value=query.country id="countryQuery" placeholder="GB"}}
         </div>
-        <button type="button" {{action "findWeather"}} class="btn btn-success">Search</button>
+        <button type="button" {{action "findWeather"}} disabled={{if isValid false true}} class="btn btn-success">Search</button>
     </form>
-    {{#unless isValid}}
-        <p class="text-danger" > 
-            Please enter atleast City or Country name!!!
-        </p>
+    {{#unless isInitial}}
+        {{#unless isValid}}
+            <p class="text-danger" > 
+                Please enter atleast City or Country name!!!
+            </p>
+        {{/unless}}
     {{/unless}}
 </div>
 {{/if}}
