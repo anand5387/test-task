@@ -1,5 +1,5 @@
 Instructions
----------------------------
+-------------
 
 1. Read the task
 2. Create a project
@@ -14,7 +14,7 @@ Instructions
 6. Provide an overview which points you would improve if you had more time to work on the project
 
 Scenario - Weathermap api client
----------------------------
+---------------------------------
 
 Your app should be a client for the [Open Weather Map API](http://openweathermap.org/API#weather) JSON api
 
@@ -28,7 +28,7 @@ Features that should work:
 
 Points would Improve on Real project
 -------------------------------------
-1. Ember Cli Mirage and Ember Try Add on can be used for Development and Test versions. It will give better execution on all states. To make presentational - Local Dev version also connecting to Actual API.
+1. Ember Cli Mirage and Ember Try Add-on can be used for Development and Test versions. It will give better execution on all states. To make presentational - Local Dev version also now connecting to Actual API.
 2. Loading navigation can be animated.
 3. Search will be enhanced to support - Auto Search based on Country and City
 4. W3C standards and SEO will be done.
