@@ -24,3 +24,13 @@ Features that should work:
 * A form with city and country that fetches and displays the weather in this city
   - optional: cache the fetched weather data
 * Gracefully handle the case where the city could not be found (display the information to the user)
+
+
+Points would Improve on Real project
+-------------------------------------
+1. Ember Cli Mirage and Ember Try Add on can be used for Development and Test versions. It will give better execution on all states. To make presentational - Local Dev version also connecting to Actual API.
+2. Loading navigation can be animated.
+3. Search will be enhanced to support - Auto Search based on Country and City
+4. W3C standards and SEO will be done.
+5. Sinon Stubs will be introduced to check all functions in Routes, Adapters, Serializer.
+6. Enhanced weather report will be added.
