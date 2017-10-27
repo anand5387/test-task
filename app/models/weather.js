@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 
-const {computed} = Ember,
-{attr} = DS;
+const {attr} = DS;
 
 export default DS.Model.extend({
     base: attr(),

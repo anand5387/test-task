@@ -2,7 +2,10 @@ import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('adapter:weather', 'Unit | Adapter | weather', {
   // Specify the other units that are required for this test.
-  // needs: ['serializer:foo']
+  needs: [
+    'service:configService',
+    'service:ajaxStatusManager'
+   ]
 });
 
 // Replace this with your real tests.

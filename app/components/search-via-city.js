@@ -37,11 +37,11 @@ export default Ember.Component.extend({
                     self.set('model', latestData);
                     self.set('isLoading', false);
                 } catch(e) {
-                    console.log(e);
+                    Ember.Logger.log(e);
                 }
                 this.set('isLoading', false);
             } else {
-                console.log('Enter City or Country Name');
+                Ember.Logger.log('Enter City or Country Name');
             }
         }
     }

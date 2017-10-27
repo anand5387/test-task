@@ -12,7 +12,6 @@ export default Ember.Service.extend({
    */
   unknownProperty(key) {
     let mockWindow = this.get('windowObject');
-
     return mockWindow[key];
   },
 

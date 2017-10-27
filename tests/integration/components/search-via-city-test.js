@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -5,21 +6,33 @@ moduleForComponent('search-via-city', 'Integration | Component | search via city
   integration: true
 });
 
-test('it renders', function(assert) {
+test('Default State', function(assert) {
+  const Model = Ember.Object.extend({
+    city: '',
+    country: ''
+  });
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  const model = Model.create();
+  this.set('query', model);
+  this.render(hbs`{{search-via-city }}`);
+  assert.equal(this.$('#cityQuery').length, 1, 'City text box available');
+  assert.equal(this.$('#countryQuery').length, 1, 'Country text box available');
+  assert.equal(this.$('button').length, 1, 'Search button available');
+  assert.equal(this.$('.text-danger').length, 1, 'Error message shown');
+});
 
-  this.render(hbs`{{search-via-city}}`);
+test('Checking search value', function(assert) {
+  const Model = Ember.Object.extend({
+    city: '',
+    country: ''
+  });
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#search-via-city}}
-      template block text
-    {{/search-via-city}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  const model = Model.create();
+  this.set('query', model);
+  this.render(hbs`{{search-via-city }}`);
+  assert.equal(this.$('#cityQuery').length, 1, 'City text box available');
+  assert.equal(this.$('#countryQuery').length, 1, 'Country text box available');
+  assert.equal(this.$('button').length, 1, 'Search button available');
+  this.$('#cityQuery').val('New York').change();
+  assert.equal(this.$('.text-danger').length, 0, 'Valid search - Error message hidden');
 });

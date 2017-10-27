@@ -30,11 +30,9 @@ export default DS.JSONAPIAdapter.extend({
 
   /**
    * Sets standard headers on all data requests
-   * Includes oauth client id
-   * Includes accessToken if present
    * Volatile ensures property is recomputed
    * every time
-   * @return {Object}     header object
+   * @return {Object} header object
    */
   headers: computed(function () {
     var header = {
@@ -134,7 +132,6 @@ export default DS.JSONAPIAdapter.extend({
   },
 
   handle404() {
-      console.log('Handle 404');
     return this;
   }
 
