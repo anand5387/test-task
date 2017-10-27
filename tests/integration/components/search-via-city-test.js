@@ -17,7 +17,7 @@ test('Default State', function(assert) {
   this.render(hbs`{{search-via-city }}`);
   assert.equal(this.$('#cityQuery').length, 1, 'City text box available');
   assert.equal(this.$('#countryQuery').length, 1, 'Country text box available');
-  assert.equal(this.$('button').length, 1, 'Search button available');
+  assert.equal(this.$('button').length, 1, 'Search button available with disabled state');
 });
 
 test('Checking search value', function(assert) {
@@ -35,5 +35,5 @@ test('Checking search value', function(assert) {
   this.$('#cityQuery').val('New York').change();
   assert.equal(this.$('.text-danger').length, 0, 'Valid search - Error message hidden');
   this.$('#cityQuery').val('').change();
-  assert.equal(this.$('.text-danger').length, 0, 'Invalid search - Error message shown');
+  assert.equal(this.$('.text-danger').length, 1, 'Invalid search - Error message shown');
 });
