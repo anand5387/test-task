@@ -9,7 +9,7 @@
             <label for="countryQuery">Country</label>
             {{input type="text" class="form-control" value=query.country id="countryQuery" placeholder="GB"}}
         </div>
-        <button type="button" {{action "findWeather"}} disabled={{if isValid false true}} class="btn btn-success">Search</button>
+        <button type="button" {{action "findWeather"}} disabled={{if isValid false true}} class="btn {{if isValid 'btn-success' 'btn-disabled'}}">Search</button>
     </form>
     {{#unless isInitial}}
         {{#unless isValid}}
