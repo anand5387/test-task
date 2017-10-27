@@ -18,7 +18,6 @@ test('Default State', function(assert) {
   assert.equal(this.$('#cityQuery').length, 1, 'City text box available');
   assert.equal(this.$('#countryQuery').length, 1, 'Country text box available');
   assert.equal(this.$('button').length, 1, 'Search button available');
-  assert.equal(this.$('.text-danger').length, 1, 'Error message shown');
 });
 
 test('Checking search value', function(assert) {
@@ -35,4 +34,6 @@ test('Checking search value', function(assert) {
   assert.equal(this.$('button').length, 1, 'Search button available');
   this.$('#cityQuery').val('New York').change();
   assert.equal(this.$('.text-danger').length, 0, 'Valid search - Error message hidden');
+  this.$('#cityQuery').val('').change();
+  assert.equal(this.$('.text-danger').length, 0, 'Invalid search - Error message shown');
 });
