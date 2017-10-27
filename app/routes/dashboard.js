@@ -7,13 +7,17 @@ export default Ember.Route.extend({
         because for most of the time it will show error 
         for blank cities. 
 
-        To make it user understandable, instead Geo location API,
+        To make it user understandable, instead of Geo location API,
         Used Random country to show different Weather zones.
 
         To check on Geo Co-ords, able to un comment Latitude and Longitude params 
         and Comment the City Param.
     */
     model() {
+        /* 
+            APPID and Other Parameters are directly added for sample task. For real time
+            applications this will be moved to common config places
+        */
         return this.store.queryRecord('weather', {
             appid: '054e91c49df188834700a4af8c7146a7',
             /*lat: latitude(),

@@ -21,6 +21,9 @@ module.exports = function(environment) {
       API_SERVICES: {
         HOST: PRODUCTION__HOST,
         NAMESPACE: ''
+      },
+      OWM_API: {
+        KEY: '054e91c49df188834700a4af8c7146a7'
       }
     },
 

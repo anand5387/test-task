@@ -4,9 +4,9 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | integer roundoff');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  let result = integerRoundoff([42]);
-  assert.ok(result);
+  assert.equal(integerRoundoff([0]), '0', 'if value is zero');
+  assert.equal(integerRoundoff([99.8]), '100', 'rounds up value correctly');
+  assert.equal(integerRoundoff([89.29]), '89', 'rounds down value correctly');
 });
 

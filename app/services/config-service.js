@@ -20,6 +20,7 @@ export default Service.extend({
       config.environment === 'development' &&
       this.get('window.location.pathname') === '/tests';
   }),
+  /* This are base options needed for every project */
   isProductionLike: computed('config', function () {
     var config = this.get('config');
 
